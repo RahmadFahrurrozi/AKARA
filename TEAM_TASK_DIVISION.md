@@ -62,7 +62,7 @@ Agar proses koding terstruktur, tidak terjadi bongkar-pasang komponen UI, dan da
 
 ## 2. Fase 0: Setup Awal Proyek
 
-Sebelum pengerjaan fitur paralel dimulai, **Rozi bertanggung jawab menginisialisasi pondasi proyek** agar Diki langsung bisa pull dan mulai ngoding tanpa konflik konfigurasi:
+Sebelum pengerjaan fitur paralel dimulai, **Rozi menginisialisasi pondasi awal proyek (Fase 0)** agar repository siap digunakan bersama tanpa konflik konfigurasi:
 
 ### Checklist Setup Rozi:
 - [ ] Inisialisasi Git Repository & remote GitHub.
@@ -91,14 +91,14 @@ Sebelum pengerjaan fitur paralel dimulai, **Rozi bertanggung jawab menginisialis
 
 > [!TIP]
 > **Prinsip Kolaborasi**: 
-> - **Rozi**: Memegang arsitektur monorepo, database & scoring engine, matching Cosine Similarity, pipeline AI Gemini, **Halaman Beranda (Landing Page)**, dan **Komponen AI Roadmap Timeline**.
-> - **Diki**: Fokus pada tugas yang modular dan terisolasi: **Seed data karier**, **Visualisasi Radar Chart (Recharts)**, **Kartu & List Rekomendasi Karier**, **Modal Detail Karier**, dan **Komponen FAQ / Panduan RIASEC**.
+> - **Rozi**: Arsitektur sistem, database & scoring engine, matching Cosine Similarity, pipeline AI Gemini, Halaman Beranda (Landing Page), dan Komponen AI Roadmap Timeline.
+> - **Diki**: Dataset karier, Visualisasi Radar Chart (Recharts), Komponen Kartu & Katalog Karier, Modal Detail Karier, serta Komponen Panduan RIASEC & FAQ.
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
 │                            AKARA                            │
 ├──────────────────────────────┬──────────────────────────────┤
-│   ROZI (Lead / Core & Flows) │   DIKI (Frontend & Guided)   │
+│ ROZI (Backend & Core Flows)  │ DIKI (Frontend & Career UI)  │
 ├──────────────────────────────┼──────────────────────────────┤
 │ • Setup Arsitektur & Monorepo│ • Seed Data Karier (JSON/TS) │
 │ • Scoring Engine 16 Tipe     │ • Visualisasi Radar Chart    │
@@ -143,31 +143,31 @@ Sebelum pengerjaan fitur paralel dimulai, **Rozi bertanggung jawab menginisialis
 
 #### Domain: Komponen Tampilan, Visualisasi Recharts, Slicing Desain, & Data Seeding
 
-> *Tugas Diki terisolasi dengan jelas, visual, berfokus pada eksplorasi karier dan edukasi hasil tes tanpa beban kalkulasi matematika berat atau prompt engineering.*
+> *Domain kerja berfokus pada implementasi antarmuka katalog karier, visualisasi data RIASEC, serta edukasi interaktif pengguna.*
 
 1. **Task 1: Seed Data Karier (`careers.seed.ts`)**:
-   - **Tujuan**: Memahami struktur data objek TypeScript / JSON.
-   - **Yang Dikerjakan**: Mengisi daftar 20–30 karier target (nama karier, deskripsi, kisaran gaji Indonesia, skill wajib, dan skor acuan RIASEC 1–100) mengikuti skema Prisma yang sudah disiapkan Rozi.
+   - **Fokus**: Penyediaan dataset profesi dan pemetaan skor RIASEC.
+   - **Yang Dikerjakan**: Mengisi daftar 20–30 karier target (nama karier, deskripsi, kisaran gaji Indonesia, skill wajib, dan skor acuan RIASEC 1–100) mengikuti skema Prisma pada model `Career`.
 
 2. **Task 2: Visualisasi RIASEC Radar Chart (Frontend)**:
-   - **Tujuan**: Menguasai integrasi library visualisasi data interaktif.
+   - **Fokus**: Visualisasi data interaktif 6 dimensi Holland Codes.
    - **Yang Dikerjakan**: Menggunakan **Recharts** untuk membuat komponen `RiasecRadarChart`.
-   - Datanya sudah siap pakai dari backend Rozi, Diki tinggal fokus styling poligon chart, aksen warna elegan, responsive container, dan custom tooltip saat di-hover.
+   - Mengintegrasikan data sesuai format API Contracts dengan styling poligon chart, aksen warna elegan, responsive container, dan custom tooltip saat di-hover.
 
 3. **Task 3: Komponen List & Kartu Karier (`CareerCard` & `CareerList`)**:
-   - **Tujuan**: Melatih komponen UI React, Tailwind CSS, dan shadcn/ui.
+   - **Fokus**: Konstruksi antarmuka katalog dan filter pencarian.
    - **Yang Dikerjakan**:
      - Membuat `CareerCard` yang menampilkan gelar karier, badge persentase kecocokan (*Match Score %*), tag industri, dan skill chips.
      - Input pencarian sederhana & filter kategori karier.
 
 4. **Task 4: Modal / Drawer Detail Karier (`CareerDetailModal`)**:
-   - **Tujuan**: Belajar dialog modal dan conditional rendering props data.
+   - **Fokus**: Dialog interaktif untuk eksplorasi profil karier mendalam.
    - **Yang Dikerjakan**:
      - Membuat Drawer / Modal popup saat kartu karier diklik.
      - Menampilkan informasi lengkap karier: ringkasan peranan, estimasi rentang gaji, prospek kerja, dan daftar skill utama.
 
 5. **Task 5: Komponen FAQ & Panduan Tipe RIASEC (Edukasi Hasil)**:
-   - **Tujuan**: Slicing komponen informatif berbasis Accordion/Card.
+   - **Fokus**: Komponen interaktif berbasis Accordion dan Card.
    - **Yang Dikerjakan**:
      - Membuat komponen panduan 6 tipe kepribadian RIASEC (Realistic, Investigative, Artistic, Social, Enterprising, Conventional) agar user paham arti skor mereka.
      - Accordion FAQ seputar hasil tes karier.
@@ -182,7 +182,7 @@ Untuk menjaga momentum dan mencegah blocker antar developer, berikut adalah urut
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                     ROADMAP SPRINT 1: MVP CORE LAUNCH                   │
 ├──────────────┬────────────────────────────┬─────────────────────────────┤
-│   TIMELINE   │      ROZI (Lead/Core)      │  DIKI (Frontend/Guided UI)  │
+│   TIMELINE   │ ROZI (Backend & Core Flows)│ DIKI (Frontend & Career UI) │
 ├──────────────┼────────────────────────────┼─────────────────────────────┤
 │ Hari 1 – 3   │ Setup Monorepo, DB Prisma, │ Menyusun data JSON/TS:      │
 │ (Fondasi)    │ Swagger, Vitest, & Linter  │ careers.seed.ts (30 karier) │

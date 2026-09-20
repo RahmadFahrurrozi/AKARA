@@ -9,7 +9,7 @@ Dokumen ini menjadi acuan tunggal kesepakatan format data antara **Rozi (Backend
 
 ## 1. Format Baku Respon API (Best Practice: JSend Extended)
 
-Di arsitektur RESTful modern, selain mengirimkan HTTP Status Code pada protokol header (`res.status(200)`), **sangat disarankan menyertakan `statusCode: number` eksplisit di dalam JSON body**. Ini memudahkan frontend (Diki) membaca status secara langsung dari data respon dan mempermudah debugging log.
+Di arsitektur RESTful modern, selain mengirimkan HTTP Status Code pada protokol header (`res.status(200)`), **sangat disarankan menyertakan `statusCode: number` eksplisit di dalam JSON body**. Ini memudahkan frontend membaca status secara langsung dari data respon dan mempermudah debugging log.
 
 ### Respon Berhasil (HTTP 200 / 201)
 ```json
@@ -216,9 +216,9 @@ Di arsitektur RESTful modern, selain mengirimkan HTTP Status Code pada protokol 
 
 ---
 
-## 3. Mock Data JSON Siap Pakai (Untuk Diki di Frontend)
+## 3. Mock Data JSON Siap Pakai (Frontend Development)
 
-Diki dapat langsung membuat file lokal `client/src/mocks/mock-careers.json` dan menyalin data di bawah ini agar bisa langsung mendesain tampilan UI tanpa menunggu koneksi database live:
+Developer dapat langsung membuat file lokal `client/src/mocks/mock-careers.json` dan menyalin data di bawah ini agar bisa langsung mendesain tampilan UI tanpa menunggu koneksi database live:
 
 ```json
 [

@@ -257,7 +257,7 @@ sequenceDiagram
 Untuk backend Express, kita menggunakan **Vitest** sebagai test runner utama dan **Supertest** untuk pengujian HTTP Integration.
 
 ### 5.1 Kenapa Memilih Vitest untuk Backend?
-1. **Unified Tooling**: Frontend dan Backend sama-sama menggunakan Vitest. Developer (termasuk Diki) tidak perlu mempelajari dua test runner yang berbeda (misal Jest vs Vitest). Sintaks assertions (`describe`, `it`, `expect`, `vi.fn()`, `vi.mock()`) 100% seragam.
+1. **Unified Tooling**: Frontend dan Backend sama-sama menggunakan Vitest. Seluruh tim developer tidak perlu mempelajari dua test runner yang berbeda (misal Jest vs Vitest). Sintaks assertions (`describe`, `it`, `expect`, `vi.fn()`, `vi.mock()`) 100% seragam.
 2. **Native TypeScript & ESM Tanpa Ribet**: Tidak memerlukan setup kompleks `ts-jest` / `babel-jest` yang sering bermasalah pada Node.js ESM.
 3. **Eksekusi Secepat Kilat**: Berjalan di atas esbuild/Vite engine sehingga kalkulasi rumit dan tes berulang selesai dalam hitungan milidetik.
 

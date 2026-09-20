@@ -1274,7 +1274,7 @@ Demo Data
 
 # 24. Daftar Fitur Lengkap & Matriks Pembagian Tugas Tim (Jobdesk)
 
-Berikut rincian lengkap seluruh fitur platform **AKARA — AI Career Platform** yang dibagi menjadi dua fase pengerjaan, lengkap dengan alokasi penanggung jawab (*Feature Ownership*) antara **Rozi (Lead / Core Engine & Key Flows)** dan **Diki (UI/UX, Visual, & Guided Features)**.
+Berikut rincian lengkap seluruh fitur platform **AKARA — AI Career Platform** yang dibagi menjadi dua fase pengerjaan, lengkap dengan alokasi penanggung jawab (*Feature Ownership*) antara **Rozi (Backend & Core Flows)** dan **Diki (Frontend & Career UI Components)**.
 
 ---
 
