@@ -7,17 +7,92 @@
 
 ## 1. Branching Strategy
 
-Kita menggunakan modifikasi dari **Git Flow / GitHub Flow** yang ramping dengan branch integrasi `develop` dan branch rilis `main`.
+### 1.1 Diagram Siklus Percabangan (Git Graph)
 
-```text
-main (Production)
-  ▲
-  │ (Release / PR merge)
-develop (Staging & Integration)
-  ▲
-  ├── feat/rozi-assessment-scoring
-  ├── feat/diki-career-matching-ui
-  └── fix/scoring-reverse-index
+```mermaid
+gitGraph
+    commit id: "init repo & docs"
+    branch develop
+    checkout develop
+    commit id: "setup monorepo scaffolding"
+
+    branch feat/rozi-scoring-engine
+    checkout feat/rozi-scoring-engine
+    commit id: "feat(db): assessment schema"
+    commit id: "feat(scoring): riasec engine"
+    commit id: "test: vitest pass 100%"
+
+    checkout develop
+    branch feat/diki-radar-chart
+    checkout feat/diki-radar-chart
+    commit id: "feat(ui): design tokens"
+    commit id: "feat(chart): riasec radar"
+
+    checkout develop
+    merge feat/rozi-scoring-engine id: "PR #1 (Squash & Merge)"
+
+    checkout feat/diki-radar-chart
+    commit id: "feat(api): mock integration"
+    commit id: "test: radar render pass"
+
+    checkout develop
+    merge feat/diki-radar-chart id: "PR #2 (Squash & Merge)"
+
+    checkout main
+    merge develop id: "Release v1.0.0 (MVP)" tag: "v1.0.0"
+```
+
+### 1.2 Diagram Alur Sistem (End-to-End Pipeline)
+
+```mermaid
+flowchart TD
+    subgraph RemoteProduction [GitHub Remote - Production]
+        MainBranch[Branch: main]
+        VercelProd[Vercel Production Deployment]
+        MainBranch -->|Auto Deploy| VercelProd
+    end
+
+    subgraph RemoteIntegration [GitHub Remote - Integration & Review]
+        DevelopBranch[Branch: develop]
+        PR[Pull Request ke develop]
+        CI[GitHub Actions CI: Vitest & Type-Check]
+        Review[Cross Peer Review: Rozi & Diki]
+        VercelPreview[Vercel Preview Deployment]
+        
+        PR --> CI
+        PR --> Review
+        PR -->|Bot Preview URL| VercelPreview
+        CI -->|Pass 100%| MergeCheck{Approval & Green?}
+        Review -->|Approved| MergeCheck
+        MergeCheck -->|Squash & Merge| DevelopBranch
+        DevelopBranch -->|Release PR| MainBranch
+    end
+
+    subgraph LocalRozi [Local Workspace - Rozi]
+        RoziDev[git pull origin develop]
+        RoziBranch[git checkout -b feat/rozi-feature]
+        RoziCode[Coding & Conventional Commits]
+        RoziTest[npm run test:run & type-check]
+        RoziPush[git push origin feat/rozi-feature]
+
+        RoziDev --> RoziBranch --> RoziCode --> RoziTest
+        RoziTest -->|Lulus 100%| RoziPush
+        RoziTest -->|Gagal| RoziCode
+        RoziPush --> PR
+    end
+
+    subgraph LocalDiki [Local Workspace - Diki]
+        DikiDev[git pull origin develop]
+        DikiBranch[git checkout -b feat/diki-feature]
+        DikiCode[Coding & Conventional Commits]
+        DikiTest[npm run test:run & type-check]
+        DikiPush[git push origin feat/diki-feature]
+
+        DikiDev --> DikiBranch --> DikiCode --> DikiTest
+        DikiTest -->|Lulus 100%| DikiPush
+        DikiTest -->|Gagal| DikiCode
+        DikiPush --> PR
+    end
 ```
 
 ### Definisi Branch:
@@ -240,7 +315,7 @@ git checkout feat/<nama-fitur>
 
 ---
 
-### 🚨 Pembatalan Operasi (Emergency Abort)
+### Pembatalan Operasi (Emergency Abort)
 Jika diperlukan pembatalan proses dan pengembalian repository ke status sebelum pull/merge:
 
 - Pembatalan Rebase:

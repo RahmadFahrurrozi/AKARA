@@ -116,7 +116,7 @@ Screen Sections:
      - Top 2 dominant dimensions highlighted with Spark Blue badges: "Investigative (92)" & "Enterprising (84)".
 3. AI Result Insight Box:
    - Container: Light background with 2px dashed green border and mascot avatar bubble.
-   - Title: "💡 Insight Analisis AI Gemini".
+   - Title: "Insight Analisis AI Gemini".
    - Structured points: "Kelebihan Utama", "Area Perhatian", and "Langkah Awal yang Disarankan".
 4. Bottom Action Bar:
    - Chunky green CTA: "LIHAT TOP 5 REKOMENDASI KARIER ↓".
@@ -145,7 +145,7 @@ Components to Include:
      - Right: Prominent Match Badge in Eager Green (#58cc02 pill with white text): "96% MATCH".
    - Card Body:
      - Short 2-sentence description of what this role does.
-     - Estimated Salary pill: "💰 Rp 8.000.000 - Rp 16.000.000 / bulan".
+     - Estimated Salary pill: "Gaji: Rp 8.000.000 - Rp 16.000.000 / bulan".
      - Key Skill Tags (horizontal pill list with 2px borders): "Python", "SQL", "Data Visualization", "Critical Thinking".
    - Card Action:
      - Spark Blue (#1cb0f6) outlined button with 2px border: "Kenapa Karier Ini Cocok? & Roadmap →".
