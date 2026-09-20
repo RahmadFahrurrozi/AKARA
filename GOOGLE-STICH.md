@@ -202,13 +202,3 @@ Visual Style:
 - Bottom Section:
   - Accordion FAQ: 4 expandable clean white boxes with 2px border (#afafaf), chevron arrow on right, containing common questions like "Apakah hasil tes bisa berubah?" and "Bagaimana cara membaca match score?".
 ```
-
----
-
-## 3. Cara Menggunakan di Google Stitch
-
-1. Buka workspace **Google Stitch** (atau AI Design Tool pilihan Anda).
-2. Buat kanvas dengan ukuran **Web Desktop (1440 x 1024)** atau **Mobile (390 x 844)**.
-3. *Copy* prompt spesifik layar yang ingin dibuat (misal **PROMPT 1 untuk Landing Page** atau **PROMPT 2 untuk Halaman Kuis Asesmen**).
-4. *Paste* ke dalam dialog prompt Google Stitch.
-5. Gunakan hasil tampilan mockup sebagai acuan styling kelas Tailwind CSS dan komponen `shadcn/ui` saat ngoding di folder `client/src/features/`.
