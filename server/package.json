@@ -1,0 +1,39 @@
+{
+  "name": "akara",
+  "version": "1.0.0",
+  "description": "AI-driven career exploration and structured planning platform designed for Indonesian students and fresh graduates. Combines scientific Holland RIASEC psychometrics, deterministic Cosine Similarity vector matching, and Google Gemini AI orchestration to deliver actionable, transparent career guidance.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RahmadFahrurrozi/AKARA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RahmadFahrurrozi/AKARA/issues"
+  },
+  "homepage": "https://github.com/RahmadFahrurrozi/AKARA#readme",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^26.6.2",
+    "nodemon": "^3.1.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^18.0.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "prisma": "^6.19.3",
+    "zod": "^4.6.5"
+  }
+}
